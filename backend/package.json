@@ -1,0 +1,24 @@
+{
+  "name": "userservice",
+  "version": "1.0.0",
+  "description": "Welcome to User Service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabari-shankar22/mysmitch.git"
+  },
+  "author": "sabari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabari-shankar22/mysmitch/issues"
+  },
+  "homepage": "https://github.com/sabari-shankar22/mysmitch#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}
