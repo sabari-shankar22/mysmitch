@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+    backend: 
+      depends_on: 
+        - db
+      build: ./backend
+      ports: 
+        - 3000:3000
+      environment: 
+        DB_URL: mongodb://db/users
+      command: ./docker-entrypoint.sh
+  
+    db:
+      image: mongo:4.0-xenial
+      ports:
+        - 27017:27017
