@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sabari-shankar22/mysmitch#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.13.3"
+    "mongoose": "^5.13.3",
+    "redis": "^3.1.2"
   }
 }

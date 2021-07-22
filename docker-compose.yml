@@ -4,6 +4,7 @@ services:
     backend: 
       depends_on: 
         - db
+        - redis
       build: ./backend
       ports: 
         - 3000:3000
@@ -15,3 +16,7 @@ services:
       image: mongo:4.0-xenial
       ports:
         - 27017:27017
+    redis:
+      image: redis:6.2-alpine
+      ports:
+        - 6379:6379
