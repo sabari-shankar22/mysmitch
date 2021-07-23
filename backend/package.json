@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/sabari-shankar22/mysmitch#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "joi": "^13.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "mongoose": "^5.13.3",
     "redis": "^3.1.2"
   }
