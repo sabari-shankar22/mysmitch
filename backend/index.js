@@ -1,11 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const reddis = require('redis');
+const redis = require('redis');
+const users = require('./routes/userRoute');
 
-const redisClient = reddis.createClient(6379,'redis');
+const redisClient = redis.createClient(6379,'localhost');
 const app = express();
 
-mongoose.connect('mongodb://db:27017/user')
+app.use(express.json());
+app.use('/api/users', users);
+
+mongoose.connect('mongodb://localhost:27017/user')
     .then(() => console.log('Connected to MongoDB...'));
 
 redisClient.on('connect', function() {
