@@ -5,7 +5,7 @@ const _ = require('lodash');
 const router = express.Router();
 
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { error } = validate(req.body); 
     if (error){
       return res.status(400).send(error.details[0].message);
@@ -28,4 +28,4 @@ router.post('/', async (req, res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['_id', 'email']));
   });
   
-  module.exports = router; 
+  module.exports = router;
