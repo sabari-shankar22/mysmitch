@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sabari-shankar22/mysmitch#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "joi": "^13.1.0",
