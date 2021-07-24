@@ -1,16 +1,16 @@
 version: "3.8"
 
 services:
-    # backend: 
-    #   depends_on: 
-    #     - db
-    #     - redis
-    #   build: ./backend
-    #   ports: 
-    #     - 3000:3000
-    #   environment: 
-    #     DB_URL: mongodb://db/users
-    #   command: ./docker-entrypoint.sh
+    backend: 
+      depends_on: 
+        - db
+        - redis
+      build: ./backend
+      ports: 
+        - 3000:3000
+      environment: 
+        DB_URL: mongodb://db/users
+      command: ./docker-entrypoint.sh
   
     db:
       image: mongo:4.0-xenial
