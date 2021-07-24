@@ -90,15 +90,15 @@ router.put('/:id', auth, async (req, res) => {
 
     if (!device) return res.status(404).send('The Device with the given ID was not found.');
 
-    redis.lrange('devices', 0, -1, function(err, data) {
+    redis.lrange('devices', 0, -1, async function(err, data) {
         if(data.length>0){
             redis.del('devices');
             for (let i = 0; i < data.length; i++) {
                     if(JSON.parse(data[i])._id != req.params.id){
-                        redis.rpush('devices', JSON.stringify(JSON.parse(data[i])));
+                        await redis.rpush('devices', JSON.stringify(JSON.parse(data[i])));
                     }
             }
-            redis.rpush('devices', JSON.stringify(device));
+            await redis.rpush('devices', JSON.stringify(device));
         }
     });
 
@@ -116,7 +116,7 @@ router.delete('/:id', auth, async (req, res) => {
     user.devices.splice(user.devices.indexOf(req.params.id), 1);
     user = await user.save();
 
-    res.send(user);
+    res.status(200).send("Device Deleted");
 });
 
 
