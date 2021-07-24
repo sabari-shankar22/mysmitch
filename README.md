@@ -1,8 +1,15 @@
 # mysmitch
 Demo Code for Smitch
 
-TO RUN - 
-GO to the project's root folder and run - docker compose up -build
+TO RUN -
+
+You should have docker installed on the machine.
+
+Go to the project's root folder and run - docker compose up -build
+
+Creates 4 containers:
+
+MongoDB, Redis, Backend, Frontend.
 
 APIs:
 
