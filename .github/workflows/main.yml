@@ -1,0 +1,13 @@
+name: Review Pull Request with OpenAI Codex
+on: pull_request
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install OpenAI Codex SDK
+        run: pip install openai-codex
+      - name: Get pull request
+        run: echo "Pull Request ID - ${{ github.event.pull_request.id }}"
+      - name: Review pull request
+        run: openai-codex review ${{ github.event.pull_request.id }}
