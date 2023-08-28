@@ -1,13 +1,22 @@
-name: Review Pull Request with OpenAI Codex
-on: pull_request
+name: AI Code Reviewer
 
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+permissions: write-all
 jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - name: Install OpenAI Codex SDK
-        run: pip install openai-codex
-      - name: Get pull request
-        run: echo "Pull Request ID - ${{ github.event.pull_request.id }}"
-      - name: Review pull request
-        run: openai-codex review ${{ github.event.pull_request.id }}
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: AI Code Reviewer
+        uses: sabari-shankar22/ai-code-reviewer@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_MODEL: "gpt-4" # Optional: defaults to "gpt-4"
+          exclude: "**/*.json, **/*.md" # Optional: exclude patterns separated by commas
